@@ -33,7 +33,9 @@ export default function Result() {
         // ลด padding ด้านนอกจาก p-8 เป็น p-4 และใช้ max-w-5xl เพื่อบีบกรอบเข้ามา
         <div className="p-4 max-w-5xl mx-auto transition-colors duration-300">
             {/* ลด margin bottom ของหัวข้อจาก mb-8 เป็น mb-4 */}
-            <h1 className="text-3xl font-bold text-center mb-4 text-black dark:text-white transition-colors">{t.inspection}</h1>
+            <h1 className="text-3xl font-bold text-center mb-4 text-black dark:text-white transition-colors">
+                {t.inspection || "Inspection"}
+            </h1>
 
             {/* ลด gap จาก 8 เป็น 6 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -47,11 +49,11 @@ export default function Result() {
                     <div className="flex justify-end gap-2 mt-3">
                         <button onClick={() => navigate("/")}
                             className="px-5 py-1.5 bg-white border border-green-700 text-green-700 dark:bg-transparent dark:border-gray-500 dark:text-gray-300 rounded text-sm font-bold hover:bg-green-50 dark:hover:bg-gray-800 transition">
-                            Back
+                            {t.back || "Back"}
                         </button>
                         <button onClick={() => navigate(`/edit/${id}`)}
                             className="px-5 py-1.5 bg-[#1A8754] text-white dark:bg-cyan-500 dark:text-black rounded text-sm font-bold hover:bg-green-800 dark:hover:bg-cyan-400 transition">
-                            Edit
+                            {t.edit || "Edit"}
                         </button>
                     </div>
                 </div>
@@ -62,30 +64,30 @@ export default function Result() {
 
                     {/* Box 1: Basic Info */}
                     <div className="bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-800 shadow-sm transition-colors p-3.5 rounded-md text-sm grid grid-cols-2 gap-y-3">
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Create Date - Time</p><p className="font-semibold text-gray-800 dark:text-gray-200">{new Date(basic.created_at).toLocaleString()}</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Inspection ID:</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.inspection_id}</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Standard:</p><p className="font-semibold text-gray-800 dark:text-gray-200">{t[basic.standard] || basic.standard}</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Total Sample:</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.total_sample} kernal</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Update Date - Time:</p><p className="font-semibold text-gray-800 dark:text-gray-200">{new Date(basic.updated_at).toLocaleString()}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.createDate || "Create Date - Time"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{new Date(basic.created_at).toLocaleString()}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.id || "Inspection ID:"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.inspection_id}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.standard || "Standard:"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{t[basic.standard] || basic.standard}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.totalSample || "Total Sample:"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.total_sample} kernal</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.updateDate || "Update Date - Time:"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{new Date(basic.updated_at).toLocaleString()}</p></div>
                     </div>
 
                     {/* Box 2: Optional Info */}
                     <div className="bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-800 shadow-sm transition-colors p-3.5 rounded-md text-sm grid grid-cols-2 gap-y-3">
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Note</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.note || "-"}</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Price</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.price || "-"}</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Date/Time of Sampling</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.sampling_datetime ? new Date(basic.sampling_datetime).toLocaleString() : "-"}</p></div>
-                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">Sampling Point</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.sampling_point ? (Array.isArray(basic.sampling_point) ? basic.sampling_point.join(", ") : basic.sampling_point) : "-"}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.note || "Note"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.note || "-"}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.priceRange || "Price"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.price || "-"}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.samplingDate || "Date/Time of Sampling"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.sampling_datetime ? new Date(basic.sampling_datetime).toLocaleString() : "-"}</p></div>
+                        <div><p className="text-xs text-gray-500 dark:text-gray-400 mb-0.5">{t.samplingPoint || "Sampling Point"}</p><p className="font-semibold text-gray-800 dark:text-gray-200">{basic.sampling_point ? (Array.isArray(basic.sampling_point) ? basic.sampling_point.join(", ") : basic.sampling_point) : "-"}</p></div>
                     </div>
 
                     {/* Box 3: Composition */}
                     <div className="bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-800 shadow-sm transition-colors p-3 rounded-md">
-                        <h3 className="font-bold text-base mb-2 dark:text-gray-100">Composition</h3>
+                        <h3 className="font-bold text-base mb-2 dark:text-gray-100">{t.composition || "Composition"}</h3>
                         <table className="min-w-full text-xs">
                             <thead className="bg-[#f5f5f5] dark:bg-gray-800 transition-colors">
                                 <tr>
-                                    <th className="px-3 py-1.5 text-left font-bold text-gray-700 dark:text-gray-300">Name</th>
-                                    <th className="px-3 py-1.5 text-right font-bold text-gray-700 dark:text-gray-300">Length</th>
-                                    <th className="px-3 py-1.5 text-right font-bold text-gray-700 dark:text-gray-300">Actual</th>
+                                    <th className="px-3 py-1.5 text-left font-bold text-gray-700 dark:text-gray-300">{t.name || "Name"}</th>
+                                    <th className="px-3 py-1.5 text-right font-bold text-gray-700 dark:text-gray-300">{t.length || "Length"}</th>
+                                    <th className="px-3 py-1.5 text-right font-bold text-gray-700 dark:text-gray-300">{t.actual || "Actual"}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-100 dark:divide-gray-700 bg-white dark:bg-[#0a0f1c] transition-colors">
@@ -102,12 +104,12 @@ export default function Result() {
 
                     {/* Box 4: Defect Rice */}
                     <div className="bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-800 shadow-sm transition-colors p-3 rounded-md">
-                        <h3 className="font-bold text-base mb-2 dark:text-gray-100">Defect Rice</h3>
+                        <h3 className="font-bold text-base mb-2 dark:text-gray-100">{t.defectRice || "Defect Rice"}</h3>
                         <table className="min-w-full text-xs">
                             <thead className="bg-[#f5f5f5] dark:bg-gray-800 transition-colors">
                                 <tr>
-                                    <th className="px-3 py-1.5 text-left font-bold text-gray-700 dark:text-gray-300">Name</th>
-                                    <th className="px-3 py-1.5 text-right font-bold text-gray-700 dark:text-gray-300">Actual</th>
+                                    <th className="px-3 py-1.5 text-left font-bold text-gray-700 dark:text-gray-300">{t.name || "Name"}</th>
+                                    <th className="px-3 py-1.5 text-right font-bold text-gray-700 dark:text-gray-300">{t.actual || "Actual"}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-100 dark:divide-gray-700 bg-white dark:bg-[#0a0f1c] transition-colors">
