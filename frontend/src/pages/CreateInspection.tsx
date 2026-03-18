@@ -1,11 +1,10 @@
-// filename: frontend/src/pages/CreateInspection.tsx
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LanguageContext } from "../App"; // ดึงระบบแปลภาษามาใช้
 
-// กำหนด URL ของ Backend ของเรา
-const API_URL = "http://localhost:5000";
+// กำหนด URL
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 interface Standard {
     id: string;

@@ -1,10 +1,9 @@
-// filename: frontend/src/pages/History.tsx
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LanguageContext } from "../App"; // ดึงระบบภาษามาใช้
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function History() {
     const navigate = useNavigate();

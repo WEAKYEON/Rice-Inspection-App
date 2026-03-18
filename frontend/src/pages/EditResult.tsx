@@ -1,10 +1,9 @@
-// filename: frontend/src/pages/EditResult.tsx
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LanguageContext } from "../App"; // ดึงระบบแปลภาษามาใช้
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function EditResult() {
     const { id } = useParams();
