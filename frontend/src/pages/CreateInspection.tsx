@@ -104,7 +104,7 @@ export default function CreateInspection() {
                 {/* Name */}
                 <div>
                     <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">{t.nameReq || "Name*"}</label>
-                    <input type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Please Holder"
+                    <input type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder={t.pleaseHolder}
                         className="block w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white p-2 text-sm shadow-sm focus:border-green-500 focus:ring-green-500 transition-colors" />
                 </div>
 
@@ -132,7 +132,7 @@ export default function CreateInspection() {
                 {/* Note */}
                 <div>
                     <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">{t.note || "Note"}</label>
-                    <input type="text" value={note} onChange={(e) => setNote(e.target.value)} placeholder="Please Holder"
+                    <input type="text" value={note} onChange={(e) => setNote(e.target.value)} placeholder={t.pleaseHolder}
                         className="block w-full rounded-md border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white p-2 text-sm shadow-sm focus:border-green-500 focus:ring-green-500 transition-colors" />
                 </div>
 

@@ -45,6 +45,7 @@ export const translations = {
         frontEnd: "Front End",
         backEnd: "Back End",
         other: "Other",
+        pleaseHolder: "Please enter",
 
         // History Page
         historyTitle: "Inspection History",
@@ -116,6 +117,7 @@ export const translations = {
         frontEnd: "ส่วนหน้า",
         backEnd: "ส่วนหลัง",
         other: "อื่นๆ",
+        pleaseHolder: "กรุณากรอกข้อมูล",
 
         // History Page
         historyTitle: "ประวัติการตรวจสอบ",

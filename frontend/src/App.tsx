@@ -32,24 +32,26 @@ export default function App() {
       <div className="min-h-screen bg-white dark:bg-[#0a0f1c] text-gray-900 dark:text-gray-100 transition-colors duration-300 flex flex-col">
         <BrowserRouter>
 
-          {/* 🛠️ แก้ปัญหาที่ 2: Navbar ไม่รองรับมือถือ */}
-          {/* ปรับจาก flex ธรรมดา เป็น flex-col บนมือถือ และ flex-row บนคอม (md:flex-row) */}
-          <nav className="bg-gray-50 dark:bg-[#111827] border-b dark:border-gray-800 px-4 md:px-8 py-3 md:py-4 flex flex-col md:flex-row justify-between items-center gap-4 transition-colors sticky top-0 z-50 shadow-sm">
+          {/* 🛠️ แก้ไข Navbar เพื่อให้โลโก้อยู่บรรทัดเดียวกับเมนูและไปทางซ้าย */}
+          {/* ปรับให้เป็น flex-row ตลอดเวลา ไม่ใช้ md:flex-row เพื่อให้เรียงกันบนมือถือ */}
+          <nav className="bg-gray-50 dark:bg-[#111827] border-b dark:border-gray-800 px-4 py-2 flex flex-row justify-between items-center transition-colors sticky top-0 z-50 shadow-sm">
 
-            {/* ฝั่งซ้าย: โลโก้ และ ลิงก์เมนู */}
-            {/* จัดให้อยู่ตรงกลางบนมือถือ และอยู่ซ้ายบนคอม */}
-            <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center w-full md:w-auto">
+            {/* กลุ่มซ้าย: โลโก้ และ เมนู */}
+            {/* ทำให้โลโก้และเมนูเป็นแนวราบ (row) ตลอดเวลา */}
+            <div className="flex flex-row gap-6 items-center">
               <Link to="/">
                 <img
                   src="https://easyrice.ai/logo/easyrice_logo_full.svg"
                   alt="EASYRICE Logo"
-                  className="h-12 md:h-14 w-auto hover:opacity-80 transition-all duration-300 dark:invert dark:hue-rotate-[240deg] dark:brightness-110"
+                  // ลดขนาดโลโก้ลงนิดหน่อยบนมือถือเพื่อไม่ให้เบียดเกินไป
+                  className="h-10 md:h-14 w-auto hover:opacity-80 transition-all duration-300 dark:invert dark:hue-rotate-[240deg] dark:brightness-110"
                 />
               </Link>
 
-              <div className="flex gap-4">
+              {/* เมนู (ลด gap เหลือ 3) */}
+              <div className="flex gap-3 text-xs md:text-sm">
                 <Link to="/" className="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-cyan-400 font-medium transition-colors">
-                  {t.inspection || "Create Inspection"}
+                  {t.inspection || "Inspection"}
                 </Link>
                 <Link to="/history" className="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-cyan-400 font-medium transition-colors">
                   {t.history || "History"}
@@ -57,14 +59,15 @@ export default function App() {
               </div>
             </div>
 
-            {/* ฝั่งขวา: ปุ่มสลับภาษา และ ธีม */}
-            <div className="flex gap-2 justify-center">
+            {/* กลุ่มขวา: ปุ่มสลับภาษา และ ธีม (ใช้กลุ่มปุ่มเล็กที่เราเพิ่งปรับมา) */}
+            <div className="flex gap-2 items-center">
               <button
                 onClick={() => setLang(lang === "en" ? "th" : "en")}
                 className="w-16 md:w-20 text-center flex items-center justify-center px-2 py-1.5 rounded-md text-xs font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
               >
                 {t.langBtn || "TH"}
               </button>
+
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className="w-24 md:w-28 text-center flex items-center justify-center px-2 py-1.5 rounded-md text-xs font-medium bg-gray-800 text-white dark:bg-cyan-500 dark:text-black hover:bg-gray-700 dark:hover:bg-cyan-400 transition-colors dark:shadow-[0_0_10px_rgba(6,182,212,0.4)]"
@@ -75,7 +78,6 @@ export default function App() {
           </nav>
 
           {/* พื้นที่สำหรับแสดงเนื้อหาแต่ละหน้า */}
-          {/* ใส่ flex-grow เพื่อให้พื้นที่เนื้อหายืดออกไปดันขอบล่างให้เต็มจอ */}
           <div className="flex-grow pt-4 pb-12">
             <Routes>
               <Route path="/" element={<CreateInspection />} />
