@@ -167,11 +167,11 @@ export default function CreateInspection() {
                 {/* Buttons */}
                 <div className="flex justify-end gap-3 pt-2">
                     <button type="button" onClick={() => navigate(-1)}
-                        className="px-6 py-2 bg-white dark:bg-gray-800 border border-green-600 dark:border-green-500 text-green-700 dark:text-green-400 font-bold rounded hover:bg-green-50 dark:hover:bg-gray-700 transition">
+                        className="px-6 py-2 bg-white dark:bg-gray-800 border border-green-600 dark:border-green-500 text-green-700 dark:text-cyan-400 font-bold rounded hover:bg-green-50 dark:hover:bg-gray-700 transition">
                         {t.cancel || "Cancel"}
                     </button>
                     <button type="submit" disabled={isLoading}
-                        className="px-6 py-2 bg-[#1A8754] text-white font-bold rounded hover:bg-green-800 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                        className="px-6 py-2 bg-[#1A8754] dark:bg-cyan-500 text-white dark:text-black font-bold rounded hover:bg-green-800 dark:hover:bg-cyan-400 dark:shadow-[0_0_10px_rgba(6,182,212,0.5)] transition disabled:opacity-50 disabled:cursor-not-allowed">
                         {isLoading ? (t.loading || "Submitting...") : (t.submit || "Submit")}
                     </button>
                 </div>
