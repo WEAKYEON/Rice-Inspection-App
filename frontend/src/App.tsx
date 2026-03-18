@@ -1,4 +1,3 @@
-// filename: frontend/src/App.tsx
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect, createContext } from "react";
 import CreateInspection from "./pages/CreateInspection";
@@ -13,28 +12,38 @@ export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [lang, setLang] = useState<"en" | "th">("en");
 
+  // 🛠️ แก้ปัญหาที่ 1: พื้นที่สีขาวด้านล่าง
+  // สั่งให้ตัว Body ของเว็บเปลี่ยนสีตามโหมดไปด้วยเลย เพื่อไม่ให้มีสีขาวโผล่มาตอนเลื่อนจอ
   useEffect(() => {
-    if (isDarkMode) document.documentElement.classList.add('dark');
-    else document.documentElement.classList.remove('dark');
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      document.body.style.backgroundColor = '#0a0f1c'; // สีพื้นหลังจอ Dark
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.body.style.backgroundColor = '#ffffff'; // สีพื้นหลังจอ Light
+    }
   }, [isDarkMode]);
 
   const t = translations[lang];
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
-      <div className="min-h-screen bg-white dark:bg-[#0a0f1c] text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      {/* ใส่ flex และ flex-col เพื่อดันให้เนื้อหาเต็มจอพอดี */}
+      <div className="min-h-screen bg-white dark:bg-[#0a0f1c] text-gray-900 dark:text-gray-100 transition-colors duration-300 flex flex-col">
         <BrowserRouter>
 
-          {/* 🌟 แถบเมนูด้านบน (Navbar) 🌟 */}
-          <nav className="bg-gray-50 dark:bg-[#111827] border-b dark:border-gray-800 px-8 py-4 flex justify-between items-center transition-colors sticky top-0 z-50 shadow-sm">
+          {/* 🛠️ แก้ปัญหาที่ 2: Navbar ไม่รองรับมือถือ */}
+          {/* ปรับจาก flex ธรรมดา เป็น flex-col บนมือถือ และ flex-row บนคอม (md:flex-row) */}
+          <nav className="bg-gray-50 dark:bg-[#111827] border-b dark:border-gray-800 px-4 md:px-8 py-3 md:py-4 flex flex-col md:flex-row justify-between items-center gap-4 transition-colors sticky top-0 z-50 shadow-sm">
 
             {/* ฝั่งซ้าย: โลโก้ และ ลิงก์เมนู */}
-            <div className="flex gap-8 items-center">
+            {/* จัดให้อยู่ตรงกลางบนมือถือ และอยู่ซ้ายบนคอม */}
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center w-full md:w-auto">
               <Link to="/">
                 <img
                   src="https://easyrice.ai/logo/easyrice_logo_full.svg"
                   alt="EASYRICE Logo"
-                  className="h-16 w-auto hover:opacity-80 transition-all duration-300 dark:invert dark:hue-rotate-[240deg] dark:brightness-110"
+                  className="h-12 md:h-16 w-auto hover:opacity-80 transition-all duration-300 dark:invert dark:hue-rotate-[240deg] dark:brightness-110"
                 />
               </Link>
 
@@ -49,27 +58,27 @@ export default function App() {
             </div>
 
             {/* ฝั่งขวา: ปุ่มสลับภาษา และ ธีม */}
-            <div className="flex gap-3">
-              {/* ปุ่มเปลี่ยนภาษา */}
+            {/* ปรับขนาดปุ่มให้พอดีบนมือถือ */}
+            <div className="flex gap-2 w-full md:w-auto justify-center">
               <button
                 onClick={() => setLang(lang === "en" ? "th" : "en")}
-                className="w-48 text-center flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                className="w-full md:w-32 text-center flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
               >
-                {t.langBtn}
+                {t.langBtn || "TH"}
               </button>
 
-              {/* ปุ่มเปลี่ยนโหมด */}
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
-                className="w-48 text-center flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium bg-gray-800 text-white dark:bg-cyan-500 dark:text-black hover:bg-gray-700 dark:hover:bg-cyan-400 transition-colors dark:shadow-[0_0_10px_rgba(6,182,212,0.4)]"
+                className="w-full md:w-40 text-center flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium bg-gray-800 text-white dark:bg-cyan-500 dark:text-black hover:bg-gray-700 dark:hover:bg-cyan-400 transition-colors dark:shadow-[0_0_10px_rgba(6,182,212,0.4)]"
               >
-                {isDarkMode ? t.themeLight : t.themeDark}
+                {isDarkMode ? (t.themeLight || "Light Theme") : (t.themeDark || "Dark Theme")}
               </button>
             </div>
           </nav>
 
           {/* พื้นที่สำหรับแสดงเนื้อหาแต่ละหน้า */}
-          <div className="flex-grow pt-4 pb-12 overflow-y-auto">
+          {/* ใส่ flex-grow เพื่อให้พื้นที่เนื้อหายืดออกไปดันขอบล่างให้เต็มจอ */}
+          <div className="flex-grow pt-4 pb-12">
             <Routes>
               <Route path="/" element={<CreateInspection />} />
               <Route path="/result/:id" element={<Result />} />
