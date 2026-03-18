@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ใส่สีพื้นหลังให้ดูสบายตาเหมือนแอปหลังบ้าน */
+body {
+  background-color: #f3f4f6;
+}

@@ -1,0 +1,145 @@
+// filename: frontend/src/translations.ts
+export const translations = {
+    en: {
+        inspection: "Inspection",
+        history: "History",
+        // Navbar & Themes
+        langBtn: "TH",
+        themeLight: "Light Theme",
+        themeDark: "Dark Theme",
+
+        // Common
+        back: "Back",
+        edit: "Edit",
+        submit: "Submit",
+        cancel: "Cancel",
+        loading: "Loading...",
+        noData: "No records found.",
+
+        // Labels
+        createDate: "Create Date - Time",
+        id: "Inspection ID",
+        standard: "Standard",
+        test_standard: "Standard Rice Testing",
+        totalSample: "Total Sample",
+        updateDate: "Update Date - Time",
+        note: "Note",
+        price: "Price",
+        samplingDate: "Date/Time of Sampling",
+        samplingPoint: "Sampling Point",
+        composition: "Composition",
+        name: "Name",
+        length: "Length",
+        actual: "Actual",
+        defectRice: "Defect Rice",
+
+        // Create & Edit Page
+        createTitle: "Create Inspection",
+        editTitle: "Edit Result",
+        nameReq: "Name *",
+        stdReq: "Standard *",
+        selectStd: "Select Standard",
+        uploadReq: "Upload Raw Data (.json) *",
+        optFields: "Optional Fields",
+        priceRange: "Price (0 - 100,000)",
+        frontEnd: "Front End",
+        backEnd: "Back End",
+        other: "Other",
+
+        // History Page
+        historyTitle: "Inspection History",
+        searchId: "Search ID",
+        fromDate: "From Date",
+        toDate: "To Date",
+        search: "Search",
+        clear: "Clear",
+        select: "Select",
+        page: "Page",
+        of: "of",
+        prev: "Previous",
+        next: "Next",
+        deleteSelected: "Delete Selected",
+
+        // Defect Rice Types
+        mygrain1: "Whole White Rice",
+        mygrain2: "Broken White Rice",
+        yellow: "Yellow Rice",
+        chalky: "Chalky Rice",
+        paddy: "Paddy Rice",
+        red: "Red Rice",
+        damage: "Damaged Rice",
+        glutinous: "Glutinous Rice",
+        total_defect: "Total Foreign Matters",
+    },
+    th: {
+        inspection: "การตรวจสอบ",
+        history: "ประวัติ",
+        // Navbar & Themes
+        langBtn: "ENG",
+        themeLight: "ธีมสว่าง",
+        themeDark: "ธีมมืด",
+
+        // Common
+        back: "กลับ",
+        edit: "แก้ไข",
+        submit: "บันทึกข้อมูล",
+        cancel: "ยกเลิก",
+        loading: "กำลังโหลด...",
+        noData: "ไม่พบข้อมูล",
+
+        // Labels
+        createDate: "วันเวลาที่สร้าง",
+        id: "รหัสการตรวจสอบ",
+        standard: "มาตรฐาน",
+        test_standard: "มาตรฐานข้าวทดสอบ",
+        totalSample: "จำนวนทั้งหมด",
+        updateDate: "วันเวลาที่อัปเดต",
+        note: "หมายเหตุ",
+        price: "ราคา",
+        samplingDate: "เวลาที่สุ่มตัวอย่าง",
+        samplingPoint: "จุดสุ่มตัวอย่าง",
+        composition: "ส่วนประกอบ (รูปร่าง)",
+        name: "ชื่อ",
+        length: "ความยาว",
+        actual: "ผลลัพธ์",
+        defectRice: "ข้าวตำหนิ",
+
+        // Create & Edit Page
+        createTitle: "สร้างรายการตรวจสอบ",
+        editTitle: "แก้ไขข้อมูล",
+        nameReq: "ชื่อ *",
+        stdReq: "มาตรฐาน *",
+        selectStd: "เลือกมาตรฐาน",
+        uploadReq: "อัปโหลดข้อมูล (.json) *",
+        optFields: "ข้อมูลเพิ่มเติม (ตัวเลือก)",
+        priceRange: "ราคา (0 - 100,000)",
+        frontEnd: "ส่วนหน้า",
+        backEnd: "ส่วนหลัง",
+        other: "อื่นๆ",
+
+        // History Page
+        historyTitle: "ประวัติการตรวจสอบ",
+        searchId: "ค้นหารหัส ID",
+        fromDate: "ตั้งแต่วันที่",
+        toDate: "ถึงวันที่",
+        search: "ค้นหา",
+        clear: "ล้างค่า",
+        select: "เลือก",
+        page: "หน้า",
+        of: "จาก",
+        prev: "ก่อนหน้า",
+        next: "ถัดไป",
+        deleteSelected: "ลบรายการที่เลือก",
+
+        // Defect Rice Types
+        mygrain1: "ข้าวขาวอวบ",
+        mygrain2: "ข้าวหักทั่วไป",
+        yellow: "ข้าวเหลือง",
+        chalky: "ข้าวท้องไข่",
+        paddy: "ข้าวเปลือก",
+        red: "ข้าวแดง",
+        damage: "ข้าวเสีย",
+        glutinous: "ข้าวเหนียว",
+        total_defect: "ข้าวปลอมปนทั้งหมด",
+    }
+};
