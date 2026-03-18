@@ -30,9 +30,13 @@ export default function App() {
 
             {/* ฝั่งซ้าย: โลโก้ และ ลิงก์เมนู */}
             <div className="flex gap-8 items-center">
-              <span className="font-bold text-xl tracking-wider text-black dark:text-white">
-                EASYRICE TEST
-              </span>
+              <Link to="/">
+                <img
+                  src="https://easyrice.ai/logo/easyrice_logo_full.svg"
+                  alt="EASYRICE Logo"
+                  className="h-8 w-auto hover:opacity-80 transition-opacity"
+                />
+              </Link>
 
               <div className="flex gap-4">
                 <Link to="/" className="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-cyan-400 font-medium transition-colors">
