@@ -1,4 +1,3 @@
-// filename: backend/src/index.ts
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { randomUUID } from 'crypto'; // ใช้สร้าง ID สุ่มแบบไม่ซ้ำ
@@ -42,12 +41,16 @@ const allQuery = (query: string, params: any[] = []): Promise<any[]> => {
 };
 
 // ==========================================
-// 📌 ROUTES (APIs)
+// ROUTES (APIs)
 // ==========================================
+
+// 0. หน้าแรกสุด (Root) ต้อนรับเมื่อเปิดเข้าลิงก์ Backend
+app.get('/', (req: Request, res: Response) => {
+    res.send('EASYRICE API is running perfectly! 🚀');
+});
 
 // 1. ดึงข้อมูล Standard ไปแสดงใน Dropdown หน้า Create Inspection
 app.get('/standard', (req: Request, res: Response) => {
-    // ส่งไปแค่ id กับ name ให้ Dropdown หน้าบ้าน
     const standardList = standardsDB.map(s => ({ id: s.id, name: s.name }));
     res.json(standardList);
 });
@@ -71,7 +74,7 @@ app.post('/history', async (req: Request, res: Response): Promise<any> => {
             return res.status(404).json({ error: "Standard not found" });
         }
 
-        // 3. 🧠 ส่งไปให้ฟังก์ชันคำนวณประมวลผล
+        // 3. ส่งไปให้ฟังก์ชันคำนวณประมวลผล
         const result = calculateInspection(raw_data, standard.standardData);
 
         // 4. บันทึกข้อมูลลงฐานข้อมูล (Database)
@@ -135,14 +138,14 @@ app.get('/history', async (req: Request, res: Response) => {
         let countQuery = `SELECT COUNT(*) as total FROM inspection_history WHERE 1=1`;
         let params: any[] = [];
 
-        // 🔍 กรองด้วย ID
+        // กรองด้วย ID
         if (search) {
             query += ` AND id LIKE ?`;
             countQuery += ` AND id LIKE ?`;
             params.push(`%${search}%`);
         }
 
-        // 📅 กรองด้วยวันที่ (Date Range)
+        // กรองด้วยวันที่ (Date Range)
         if (startDate && endDate) {
             query += ` AND created_at BETWEEN ? AND ?`;
             countQuery += ` AND created_at BETWEEN ? AND ?`;

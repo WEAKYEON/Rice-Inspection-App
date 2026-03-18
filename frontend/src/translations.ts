@@ -1,4 +1,3 @@
-// filename: frontend/src/translations.ts
 export const translations = {
     en: {
         inspection: "Inspection",
