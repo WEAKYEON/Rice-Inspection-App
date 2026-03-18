@@ -34,7 +34,7 @@ export default function App() {
                 <img
                   src="https://easyrice.ai/logo/easyrice_logo_full.svg"
                   alt="EASYRICE Logo"
-                  className="h-8 w-auto hover:opacity-80 transition-opacity"
+                  className="h-12 w-auto hover:opacity-80 transition-opacity"
                 />
               </Link>
 
@@ -69,7 +69,7 @@ export default function App() {
           </nav>
 
           {/* พื้นที่สำหรับแสดงเนื้อหาแต่ละหน้า */}
-          <div className="pt-4 pb-12">
+          <div className="flex-grow pt-4 pb-12 overflow-y-auto">
             <Routes>
               <Route path="/" element={<CreateInspection />} />
               <Route path="/result/:id" element={<Result />} />

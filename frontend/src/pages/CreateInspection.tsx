@@ -96,7 +96,7 @@ export default function CreateInspection() {
     };
 
     return (
-        <div className="p-8 max-w-2xl mx-auto transition-colors duration-300">
+        <div className="p-8 max-w-2xl mx-auto w-full pb-20">
             <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">{t.createTitle}</h1>
 
             <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-[#111827] dark:border dark:border-gray-800 p-8 rounded-lg border shadow-sm transition-colors duration-300">
