@@ -58,18 +58,16 @@ export default function App() {
             </div>
 
             {/* ฝั่งขวา: ปุ่มสลับภาษา และ ธีม */}
-            {/* ปรับขนาดปุ่มให้พอดีบนมือถือ */}
-            <div className="flex gap-2 w-full md:w-auto justify-center">
+            <div className="flex gap-2 justify-center">
               <button
                 onClick={() => setLang(lang === "en" ? "th" : "en")}
-                className="w-full md:w-32 text-center flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                className="w-16 md:w-20 text-center flex items-center justify-center px-2 py-1.5 rounded-md text-xs font-medium border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
               >
                 {t.langBtn || "TH"}
               </button>
-
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
-                className="w-full md:w-40 text-center flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium bg-gray-800 text-white dark:bg-cyan-500 dark:text-black hover:bg-gray-700 dark:hover:bg-cyan-400 transition-colors dark:shadow-[0_0_10px_rgba(6,182,212,0.4)]"
+                className="w-24 md:w-28 text-center flex items-center justify-center px-2 py-1.5 rounded-md text-xs font-medium bg-gray-800 text-white dark:bg-cyan-500 dark:text-black hover:bg-gray-700 dark:hover:bg-cyan-400 transition-colors dark:shadow-[0_0_10px_rgba(6,182,212,0.4)]"
               >
                 {isDarkMode ? (t.themeLight || "Light Theme") : (t.themeDark || "Dark Theme")}
               </button>
