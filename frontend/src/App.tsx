@@ -34,7 +34,7 @@ export default function App() {
                 <img
                   src="https://easyrice.ai/logo/easyrice_logo_full.svg"
                   alt="EASYRICE Logo"
-                  className="h-12 w-auto hover:opacity-80 transition-opacity"
+                  className="h-20 w-auto hover:opacity-80 transition-opacity"
                 />
               </Link>
 
