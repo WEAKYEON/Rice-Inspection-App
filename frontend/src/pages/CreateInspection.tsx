@@ -25,7 +25,6 @@ export default function CreateInspection() {
 
     // State สำหรับเก็บข้อมูลไฟล์และรายการ Standard
     const [rawData, setRawData] = useState<any>(null);
-    const [fileName, setFileName] = useState("");
     const [standards, setStandards] = useState<Standard[]>([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -48,7 +47,6 @@ export default function CreateInspection() {
         const file = e.target.files?.[0];
         if (!file) return;
 
-        setFileName(file.name);
         const reader = new FileReader();
         reader.onload = (event) => {
             try {
