@@ -167,7 +167,7 @@ export default function CreateInspection() {
                 {/* Buttons */}
                 <div className="flex justify-end gap-3 pt-2">
                     <button type="button" onClick={() => navigate(-1)}
-                        className="px-6 py-2 bg-white dark:bg-gray-800 border border-green-600 dark:border-green-500 text-green-700 dark:text-cyan-400 font-bold rounded hover:bg-green-50 dark:hover:bg-gray-700 transition">
+                        className="px-6 py-2 bg-white dark:bg-transparent border border-green-600 dark:border-gray-500 text-green-700 dark:text-gray-200 font-bold rounded hover:bg-green-50 dark:hover:border-gray-300 dark:hover:text-white transition">
                         {t.cancel || "Cancel"}
                     </button>
                     <button type="submit" disabled={isLoading}
