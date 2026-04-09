@@ -1,5 +1,4 @@
 # EASYRICE Rice Inspection App 
-### Full Stack Developer Intern Exam Project
 
 โปรเจกต์ระบบตรวจสอบคุณภาพข้าว เน้นการใช้งานที่ลื่นไหล รองรับการแสดงผลทั้งภาษาไทยและอังกฤษ พร้อมระบบสลับธีม (Dark Theme) เพื่อประสบการณ์ใช้งานที่ดีที่สุด
 
